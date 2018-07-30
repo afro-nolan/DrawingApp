@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PainterController">
+   <left>
+      <VBox maxWidth="-Infinity" spacing="8.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets right="8.0" />
+         </BorderPane.margin>
+         <children>
+            <TitledPane text="Drawing Colour">
+               <content>
+                  <VBox spacing="8.0" style="-fx-background-color: white;">
+                     <children>
+                        <RadioButton fx:id="blackRadioButton" mnemonicParsing="false" onAction="#colorRadioButtonSelected" selected="true" text="Black">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="colorToggleGroup" />
+                           </toggleGroup>
+                           <font>
+                              <Font name="Comic Sans MS" size="13.0" />
+                           </font></RadioButton>
+                        <RadioButton fx:id="redRadioButton" mnemonicParsing="false" onAction="#colorRadioButtonSelected" text="Red" textFill="#f80000" toggleGroup="$colorToggleGroup">
+                           <font>
+                              <Font name="Comic Sans MS" size="13.0" />
+                           </font></RadioButton>
+                        <RadioButton fx:id="greenRadioButton" mnemonicParsing="false" onAction="#colorRadioButtonSelected" text="Green" textFill="#08c31e" toggleGroup="$colorToggleGroup">
+                           <font>
+                              <Font name="Comic Sans MS" size="13.0" />
+                           </font></RadioButton>
+                        <RadioButton fx:id="blueRadioButton" mnemonicParsing="false" onAction="#colorRadioButtonSelected" text="Blue" textFill="#0e19e8" toggleGroup="$colorToggleGroup">
+                           <font>
+                              <Font name="Comic Sans MS" size="13.0" />
+                           </font></RadioButton>
+                        <RadioButton fx:id="yellowRadioButton" mnemonicParsing="false" onAction="#colorRadioButtonSelected" text="Yellow" textFill="#e1da1e" toggleGroup="$colorToggleGroup">
+                           <font>
+                              <Font name="Comic Sans MS" size="13.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton fx:id="orangeRadioButton" mnemonicParsing="false" onAction="#colorRadioButtonSelected" text="Orange" textFill="#f8c700" toggleGroup="$colorToggleGroup">
+                           <font>
+                              <Font name="Comic Sans MS Bold" size="13.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton fx:id="pinkRadioButton" mnemonicParsing="false" onAction="#colorRadioButtonSelected" text="Pink" textFill="#eb45b1" toggleGroup="$colorToggleGroup">
+                           <font>
+                              <Font name="Comic Sans MS" size="13.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                  </VBox>
+               </content>
+               <font>
+                  <Font name="Chalkboard" size="13.0" />
+               </font>
+            </TitledPane>
+            <TitledPane text="Pen Size">
+               <content>
+                  <VBox spacing="8.0" style="-fx-background-color: white;">
+                     <children>
+                        <RadioButton fx:id="smallRadioButton" mnemonicParsing="false" onAction="#sizeRadioButtonSelected" text="Small">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="sizeToggleGroup" />
+                           </toggleGroup>
+                           <font>
+                              <Font name="Comic Sans MS" size="13.0" />
+                           </font></RadioButton>
+                        <RadioButton fx:id="mediumRadioButton" mnemonicParsing="false" onAction="#sizeRadioButtonSelected" selected="true" text="Medium" toggleGroup="$sizeToggleGroup">
+                           <font>
+                              <Font name="Comic Sans MS" size="13.0" />
+                           </font></RadioButton>
+                        <RadioButton fx:id="largeRadioButton" mnemonicParsing="false" onAction="#sizeRadioButtonSelected" text="Large" toggleGroup="$sizeToggleGroup">
+                           <font>
+                              <Font name="Comic Sans MS" size="13.0" />
+                           </font></RadioButton>
+                        <RadioButton fx:id="veryLargeRadioButton" mnemonicParsing="false" onAction="#sizeRadioButtonSelected" text="Very Large" toggleGroup="$sizeToggleGroup" />
+                     </children>
+                  </VBox>
+               </content>
+               <font>
+                  <Font name="Chalkboard" size="13.0" />
+               </font>
+            </TitledPane>
+            <Button fx:id="undoButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#undoButtonPressed" text="Undo" />
+            <Button fx:id="clearButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clearButtonPressed" text="Clear" />
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <Pane fx:id="drawingAreaPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseDragged="#drawingAreaMouseDragged" style="-fx-background-color: white;" BorderPane.alignment="CENTER" />
+   </center>
+   <padding>
+      <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+   </padding>
+</BorderPane>
