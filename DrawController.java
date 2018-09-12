@@ -10,6 +10,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Polygon;
+import java.security.SecureRandom;
+import javafx.scene.transform.Transform;
 
 public class DrawController {
 
@@ -31,6 +34,7 @@ public class DrawController {
             }
             
         };
+
 
     @FXML
     private RadioButton smallRadioButton;
@@ -59,8 +63,17 @@ public class DrawController {
     @FXML
     private Pane drawingAreaPane;
 
+    @FXML 
+    private RadioButton starShape;
+
+    @FXML
+    private ToggleGroup shapeToggleGroup;
+
+
+
     private PenSize radius = PenSize.MEDIUM;
     private Paint brushColor = Color.BLACK;
+    private static final SecureRandom random = new SecureRandom();
     //final ColorPicker colorPicker = new ColorPicker();
     //colorPicker.setValue(Color.RED);
 
@@ -103,6 +116,27 @@ public class DrawController {
     @FXML
     private void colorSelected(ActionEvent event) {
         brushColor = colorPicker.getValue();
+    }
+
+    @FXML
+    private void starButtonSelected(ActionEvent event) {
+
+        //System.out.println(type(shapeToggleGroup.getSelectedToggle().getUserData()));
+
+        //Object button = shapeToggleGroup.getSelectedToggle().getUserData();
+        //System.out.println(button);
+        //if (button == "Star") {
+
+        Double[] starPoints = {205.0, 150.0, 217.0, 186.0, 259.0, 186.0, 223.0, 204.0, 233.0,
+            246.0, 205.0, 222.0, 177.0, 246.0, 187.0, 204.0, 151.0, 186.0, 193.0, 186.0};
+
+        Polygon star = new Polygon();
+        star.getPoints().addAll(starPoints);
+
+        star.setStroke(Color.GREY);
+        star.setFill(Color.rgb(random.nextInt(255), random.nextInt(255), random.nextInt(255), random.nextDouble()));
+        drawingAreaPane.getChildren().add(star);
+
     }
 
 }

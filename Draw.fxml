@@ -40,6 +40,19 @@
             <ColorPicker fx:id="colorPicker" onAction="#colorSelected" />
             <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clearButtonPressed" text="Clear" />
             <Button fx:id="undoButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#undoButtonPressed" text="Undo" />
+            <TitledPane fx:id="shapePane" prefHeight="200.0" prefWidth="200.0" text="Shapes">
+               <content>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <RadioButton fx:id="starShape" mnemonicParsing="false" onAction="#starButtonSelected" text="Star">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="shapeToggleGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                     </children>
+                  </VBox>
+               </content>
+            </TitledPane>
          </children>
       </HBox>
    </top>
